@@ -84,7 +84,8 @@ function fetchAdMarkup(url, callback) {
   }
 
   console.log('url', url);
-  xmlhttp.open('GET', url.replace(/http(s)?:\/\//, '//'), true);
+  //xmlhttp.open('GET', url.replace(/http(s)?:\/\//, '//'), true);
+  xmlhttp.open('GET', url, true);
   xmlhttp.send();
 }
 
