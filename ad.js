@@ -91,6 +91,7 @@ function fetchAdMarkup(url, callback) {
 
 function render(url, macros) {
   fetchAdMarkup(url, function(html) {
+    console.log('html response');
     renderTarget(replaceMacros(html, macros));
   });
 }
@@ -134,9 +135,13 @@ function transform(func) {
 }
 
   function renderTarget(html) {
+    console.log('renderTarget');
     doc.open();
+    console.log('renderTarget 2');
     doc.write(html.replace(/<\/body>/gi, transform(heredoc) + '\n</body>'));
+    console.log('renderTarget 3');
     doc.close();
+    console.log('renderTarget 4');
   }
 
   render('https://media.simpli.fi/ads/display/10/33395920/d9c6760e3ef306ed058dfddd9ea7644c/index.html', sifi);
